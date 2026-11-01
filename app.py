@@ -18,6 +18,58 @@ st.set_page_config(
     page_icon="🎓",
     layout="wide"
 )
+# Welcome Screen
+if "started" not in st.session_state:
+    st.session_state.started = False
+
+if not st.session_state.started:
+
+    st.title("🎓 Welcome to Student Performance Prediction System")
+    st.markdown(
+    """
+    <div style="background: linear-gradient(120deg, #172554, #4338ca);
+                padding: 25px; border-radius: 15px; color: white;">
+        <h2>Smart Academic Monitoring</h2>
+        <p>Identify academic risks early and support better student outcomes.</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+    st.subheader("Identify Academic Risk. Support Better Learning.")
+
+    st.write(
+        "This Machine Learning application helps identify students "
+        "who may need additional academic support."
+    )
+
+    st.markdown("---")
+
+    st.subheader("✨ What You Can Explore")
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.write("📊 **Dashboard**")
+        st.caption("Explore student performance and analytics.")
+
+    with col2:
+        st.write("🤖 **Risk Prediction**")
+        st.caption("Predict High Risk or Low Risk.")
+
+    with col3:
+        st.write("📈 **Visual Reports**")
+        st.caption("View charts and performance metrics.")
+
+    st.markdown("---")
+
+    st.info("Built using Python, Machine Learning and Streamlit.")
+
+    if st.button("🚀 Get Started", type="primary"):
+        st.session_state.started = True
+        st.rerun()
+
+    st.stop()
 
 # Load Model and Dataset
 model = joblib.load("student_risk_model.pkl")
@@ -37,6 +89,13 @@ st.sidebar.caption(
 )
 
 st.sidebar.divider()
+st.sidebar.subheader("🧭 Navigation")
+
+st.sidebar.markdown("[🏠 Dashboard](#student-performance-prediction-system)")
+
+st.sidebar.markdown("[🤖 Student Prediction](#predict-student-academic-risk)")
+
+st.sidebar.markdown("[ℹ️ About Project](#about-this-project)")
 st.sidebar.subheader("Project Features")
 
 st.sidebar.write("✔ Student Risk Prediction")
@@ -295,4 +354,29 @@ st.download_button(
     data=csv,
     file_name="student_performance_report.csv",
     mime="text/csv"
+)
+st.divider()
+
+st.header("ℹ️ About This Project")
+
+st.write("""
+The Student Performance Prediction and Early Warning System
+is a Machine Learning-based application designed to identify
+students who may need additional academic support.
+
+It uses attendance, internal marks, assignment completion,
+previous semester GPA, study hours and class participation
+to predict academic risk.
+""")
+
+st.subheader("Technologies Used")
+
+st.write("Python | Pandas | Scikit-learn | Streamlit")
+
+st.subheader("Project Purpose")
+
+st.info(
+    "This project is developed for educational and learning purposes. "
+    "It uses a synthetic dataset and is not validated for real-world "
+    "academic decisions."
 )
