@@ -38,6 +38,16 @@ Random Forest Classifier
 - Recall
 - F1 Score
 - Confusion Matrix
+## Key Findings & Insights
+
+- Achieved 89% overall accuracy on 200 test records.
+- Low Risk students were identified with 97% recall.
+- High Risk student recall was 32%, showing scope for model improvement.
+- The analysis highlights the importance of improving early identification of at-risk students.
+
+## Model Limitations
+
+The model needs further improvement to identify High Risk students more accurately.
 
 ## ✨ Key Features
 
